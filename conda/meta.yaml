@@ -1,0 +1,39 @@
+{% set name = "gemmi" %}
+{% set version = "0.5.3" %}
+
+package:
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
+
+source:
+  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
+  sha256: 647974d32f170b92718b26f547df288b45f054c22e782826b9f009520be2e492
+
+build:
+  number: 0
+  script: "{{ PYTHON }} -m pip install . -vv"
+
+requirements:
+  host:
+    - pip
+    - python
+    - pybind11
+  run:
+    - python
+
+test:
+  imports:
+    - gemmi
+
+about:
+  home: "https://project-gemmi.github.io/"
+  license: "Mozilla Public 2.0 (MPL 2.0)"
+  license_family: MOZILLA
+  license_file: 
+  summary: "library for structural biology"
+  doc_url: 
+  dev_url: 
+
+extra:
+  recipe-maintainers:
+    - your-github-id-here
